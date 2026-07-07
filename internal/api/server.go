@@ -47,8 +47,8 @@ func NewServer(db *sql.DB) http.Handler {
 // Dynamic route segments to replace with "_" for static file lookup.
 // RSC payload files and HTML are generated only for the placeholder "_".
 var (
-	reConnTable = regexp.MustCompile(`^(/connections/)[^/]+(/tables/)[^/]+(/.*)$`)
-	reConn      = regexp.MustCompile(`^(/connections/)[^/]+(/.*)$`)
+	reConnTable = regexp.MustCompile(`^(/connections/)[^/]+(/tables/)[^/]+((?:/.*)?)$`)
+	reConn      = regexp.MustCompile(`^(/connections/)[^/]+((?:/.*)?)$`)
 )
 
 // pathToPlaceholder maps a real dynamic path to the pre-built "_" placeholder path.
