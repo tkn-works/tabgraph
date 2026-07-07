@@ -1,0 +1,14 @@
+/tabgraph
+/tabgraph.exe
+dist/
+ui/out/
+web/out/
+web/.next/
+web/node_modules/
+*.db
+.aider*
+.ollama-loop/
+web/AGENTS.md
+web/CLAUDE.md
+CLAUDE.md
+ui/node_modules/

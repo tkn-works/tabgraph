@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: tabgraph-postgres
+    environment:
+      POSTGRES_USER: tabgraph
+      POSTGRES_PASSWORD: tabgraph
+      POSTGRES_DB: tabgraph_demo
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./dev/seed.sql:/docker-entrypoint-initdb.d/seed.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tabgraph -d tabgraph_demo"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
